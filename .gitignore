@@ -1,0 +1,8 @@
+node_modules/
+*.log
+.env
+.env.*
+.secrets/
+.npm/
+*.tgz
+.DS_Store

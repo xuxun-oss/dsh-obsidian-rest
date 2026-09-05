@@ -1,0 +1,19 @@
+# dsh-obsidian-rest — bundle patch layer.
+# `dsh plugin --profile <name> add dsh-obsidian-rest` 会把本包加入
+# dsh.profile.bundles，然后应用此 patch：把包主入口（lib/index.js）作为宿主半
+# （一个普通 Cordis 插件）加载，id 为 dsh-obsidian-rest。
+#
+# 配置（全部用户自填）通过本 insert 行的 config 传入，或由上层 patch 以 id 覆写：
+#
+#   - id: dsh-obsidian-rest
+#     config:
+#       baseUrl: https://your-vault.example.com   # 你自己的 Obsidian Local REST API 地址
+#       apiKeyEnv: OBSIDIAN_API_KEY               # 推荐：从环境变量读 key（不入库）
+#       # 或直接 apiKey: <your-api-key>          # 不推荐：会明文写入本地 profile
+#       allowWrite: false                          # 写/删总开关（默认关）
+#
+# 说明：baseUrl / apiKey 是必填项（缺一插件加载即 fail-fast 报错）。
+# API key ≈ 全库权限，务必用 apiKeyEnv / CF 双头，切勿把真实密钥写进版本库。
+- insert:
+    - id: dsh-obsidian-rest
+      name: dsh-obsidian-rest
