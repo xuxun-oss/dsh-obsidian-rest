@@ -1,6 +1,6 @@
 {
   "name": "dsh-obsidian-rest",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "DeepSeek Harness (dsh) 插件：通过用户自配的 Obsidian Local REST API，为 dsh agent 提供 vault 远程读取/搜索/写入能力（remote-REST-first，可选 Cloudflare Access 双头）。",
   "keywords": [
     "deepseek",

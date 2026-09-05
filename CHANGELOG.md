@@ -4,6 +4,15 @@
 
 格式基于 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.1.0/)，版本号遵循 [语义化版本](https://semver.org/lang/zh-CN/)。
 
+## [0.1.1] - 2026-09-05
+
+### Fixed
+
+- 修复与 dsh 0.1.1-rc.2（cordis-plugin-loader）不兼容导致的 web profile 启动崩溃：入口模块曾同时
+  `export default apply`，loader 的 `unwrapExports` 优先取 `default`（裸 apply 函数），丢失
+  `name`/`inject`，运行时访问 `ctx.tools` 抛「cannot get property "tools" without inject」。
+  改为仅具名导出 `name`/`inject`/`apply`（与 dsh-vision-imagen 一致）。
+
 ## [0.1.0] - 2026-09-05
 
 ### Added

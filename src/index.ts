@@ -35,4 +35,7 @@ export function apply(ctx: Context, config: unknown = {}): void {
   registerTools(ctx, svc);
 }
 
-export default apply;
+// 注意：不要 export default apply！cordis-plugin-loader 的 unwrapExports 会优先取
+// exports.default，若它是裸 apply 函数则会丢失 name/inject，导致「cannot get
+// property "tools" without inject」并使整个 profile 启动崩溃。保持与 dsh-vision-imagen
+// 一致的具名导出（name + inject + apply）即可。
